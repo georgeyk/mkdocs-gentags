@@ -83,3 +83,15 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/docs",
+  "/.github",
+  "/mkdocs.yml",
+  "/.pre-commit-config.yaml",
+  "/tests",
+  "/theme",
+]
+[tool.hatch.build.targets.wheel]
+packages = ["mkdocs_gentags"]
