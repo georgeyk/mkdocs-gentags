@@ -33,7 +33,7 @@ Issues = "https://github.com/georgeyk/mkdocs-gentags/issues"
 Source = "https://github.com/georgeyk/mkdocs-gentags"
 
 [project.entry-points."mkdocs.plugins"]
-mkdocs-gentags = "mkdocs_gentags.plugin:GenTagsPlugin"
+gentags = "mkdocs_gentags.plugin:GenTagsPlugin"
 
 [tool.hatch.version]
 path = "mkdocs_gentags/__init__.py"
