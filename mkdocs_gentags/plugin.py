@@ -74,6 +74,14 @@ class GenTagsPlugin(BasePlugin[GenTagsConfig]):
         if os.path.exists(tags_path):
             raise ConfigurationError(f"The path '{tags_path}' already exists.")
 
+        if not self.config.tags_index_template:
+            self.config.tags_index_template = "main.html"
+            logger.info("missing tags_index_template, set to main.html")
+
+        if not self.config.tags_template:
+            self.config.tags_template = "main.html"
+            logger.info("missing tags_template, set to main.html")
+
         return config
 
     def on_files(self, files: Files, config: MkDocsConfig) -> Files:
