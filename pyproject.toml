@@ -1,0 +1,85 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mkdocs-gentags"
+dynamic = ["version"]
+description = ""
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "George Y. Kussumoto", email = "georgeyk.dev@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "mkdocs>=1.6,<2",
+]
+
+[project.urls]
+Documentation = "https://github.com/georgeyk/mkdocs-gentags/#README.md"
+Issues = "https://github.com/georgeyk/mkdocs-gentags/issues"
+Source = "https://github.com/georgeyk/mkdocs-gentags"
+
+[project.entry-points."mkdocs.plugins"]
+mkdocs-gentags = "mkdocs_gentags.plugin:GenTagsPlugin"
+
+[tool.hatch.version]
+path = "mkdocs_gentags/__init__.py"
+
+[tool.hatch.envs.dev]
+dependencies = [
+  "mypy>=1.0.0",
+  "coverage[toml]>=6.5",
+  "pytest",
+  "pre-commit",
+  "ruff",
+]
+
+[tool.hatch.envs.dev.scripts]
+check-linter = "ruff check --show-fixes {args:mkdocs_gentags tests} "
+check-format = "ruff format --diff {args:mkdocs_gentags tests}"
+check-type = "mypy --install-types --non-interactive {args:mkdocs_gentags tests}"
+format = "ruff format {args:mkdocs_gentags tests}"
+test = "pytest -v -x -s -l {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = [
+  "- coverage combine",
+  "coverage report",
+]
+cov = [
+  "test-cov",
+  "cov-report",
+]
+
+[tool.coverage.run]
+source_pkgs = ["mkdocs_gentags"]
+branch = true
+parallel = true
+omit = [
+  "mkdocs_gentags/__init__.py",
+  "tests/__init__.py",
+]
+
+[tool.coverage.paths]
+mkdocs_gentags = ["mkdocs_gentags"]
+tests = ["tests"]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
