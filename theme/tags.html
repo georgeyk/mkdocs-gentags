@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+{{ super() }}
+<h2>Found a total of {{ page.meta.tags_data|length }} tags:</h2>
+<ul>
+    {% for tag in page.meta.tags_data %}
+    <li><a href="{{ tag.page.abs_url }}">{{ tag.page.meta.tag_name|e }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,1 +1,27 @@
 site_name: mkdocs-gentags
+
+theme:
+  name: mkdocs
+  custom_dir: theme
+
+nav:
+  - Home: index.md
+  - Pages:
+    - Page 1: 'page-tag-one.md'
+    - Page 2: 'page-tag-two.md'
+    - Page 3: 'page-tag-multiple.md'
+
+  - Tags:
+    - Tag 1: 'tags/one.md'
+    - Tag 2: 'tags/two.md'
+    - All: 'tags/index.md'
+
+watch:
+  - theme
+
+plugins:
+  - gentags:
+      path: tags
+      tags_index_template: tags.html
+      tags_template: tag.html
+      verbose: true
