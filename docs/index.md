@@ -1,17 +1,17 @@
-# Welcome to MkDocs
+# mkdocs-gentags
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+A [mkdocs][1] plugin to generate tags from metadata (aka frontmatter).
 
-## Commands
+## Installation
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
 
-## Project layout
+## Configuration
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+
+## Template variables
+
+
+## Example
+
+
+[1]: https://www.mkdocs.org

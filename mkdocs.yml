@@ -5,13 +5,14 @@ theme:
   custom_dir: theme
 
 nav:
-  - Home: index.md
-  - Pages:
+  - Home: 'index.md'
+  - Development: 'development.md'
+  - Changelog: 'changelog.md'
+  - Example:
     - Page 1: 'page-tag-one.md'
     - Page 2: 'page-tag-two.md'
     - Page 3: 'page-tag-multiple.md'
 
-  - Tags:
     - Tag 1: 'tags/one.md'
     - Tag 2: 'tags/two.md'
     - All: 'tags/index.md'
@@ -20,6 +21,7 @@ watch:
   - theme
 
 plugins:
+  - search
   - gentags:
       path: tags
       tags_index_template: tags.html
