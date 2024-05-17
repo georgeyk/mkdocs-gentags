@@ -13,13 +13,19 @@ repos:
     hooks:
     -   id: check-format
         name: Check format
-        entry: hatch run check-format
+        entry: hatch run +py=3.11 check-format
         language: python
         types: [python]
         pass_filenames: true
     -   id: check-lint
         name: Check lint
-        entry: hatch run check-linter
+        entry: hatch run +py=3.11 check-linter
+        language: python
+        types: [python]
+        pass_filenames: true
+    -   id: check-type
+        name: Check types
+        entry: hatch run +py=3.11 check-type
         language: python
         types: [python]
         pass_filenames: true
