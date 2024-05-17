@@ -23,10 +23,10 @@ jobs:
         python -m pip install hatch
 
     - name: check-linter
-      run: hatch run dev:check-linter
+      run: hatch run +py=3.11 dev:check-linter
 
     - name: check-format
-      run: hatch run dev:check-format
+      run: hatch run +py=3.11 dev:check-format
 
     - name: check-types
-      run: hatch run dev:check-type
+      run: hatch run +py=3.11 dev:check-type
