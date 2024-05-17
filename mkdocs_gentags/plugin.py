@@ -25,6 +25,10 @@ class GenTagsPlugin(BasePlugin[GenTagsConfig]):
         for fp in self._files.values():
             if fp.src_uri in files:
                 files.remove(fp)
+        # keep it in sync
+        self._files = {}
+        self._data = {}
+
         return files
 
     def _generate_tag_file(self, file, meta, config):
@@ -71,7 +75,7 @@ class GenTagsPlugin(BasePlugin[GenTagsConfig]):
 
     def on_config(self, config: MkDocsConfig) -> MkDocsConfig:
         tags_path = os.path.join(config["docs_dir"], self.config.path)
-        if os.path.exists(tags_path):
+        if self.config.path and os.path.exists(tags_path):
             raise ConfigurationError(f"The path '{tags_path}' already exists.")
 
         if not self.config.tags_index_template:
@@ -110,14 +114,13 @@ class GenTagsPlugin(BasePlugin[GenTagsConfig]):
             if tagname == "index":
                 # tag data is a dict of tag files objects -> list of backlinks
                 page.meta["tags_data"] = {
-                    self._files[tag]: self._data[tag].values() for tag in self._data
+                    self._files[tag]: list(self._data[tag].values())
+                    for tag in self._data
                 }
-                if self.config.tags_index_template:
-                    page.meta["template"] = self.config.tags_index_template
+                page.meta["template"] = self.config.tags_index_template
             else:
                 page.meta["tag_name"] = tagname
-                page.meta["tag_backlinks"] = self._data[tagname].values()
-                if self.config.tags_template:
-                    page.meta["template"] = self.config.tags_template
+                page.meta["tag_backlinks"] = list(self._data[tagname].values())
+                page.meta["template"] = self.config.tags_template
 
         return markdown
