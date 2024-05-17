@@ -38,6 +38,9 @@ gentags = "mkdocs_gentags.plugin:GenTagsPlugin"
 [tool.hatch.version]
 path = "mkdocs_gentags/__init__.py"
 
+[[tool.hatch.envs.dev.matrix]]
+python = ["3.9", "3.10", "3.11", "3.12"]
+
 [tool.hatch.envs.dev]
 dependencies = [
   "mypy>=1.0.0",
