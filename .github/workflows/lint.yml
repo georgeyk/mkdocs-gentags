@@ -1,0 +1,32 @@
+name: "Tests"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  run:
+    name: "Linters"
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: Install hatch
+      run: |
+        python -m pip install hatch
+
+    - name: check-linter
+      run: hatch run dev:check-linter
+
+    - name: check-format
+      run: hatch run dev:check-format
+
+    - name: check-types
+      run: hatch run dev:check-type
