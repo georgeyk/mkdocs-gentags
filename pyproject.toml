@@ -5,11 +5,11 @@ build-backend = "hatchling.build"
 [project]
 name = "mkdocs-gentags"
 dynamic = ["version"]
-description = ""
+description = "A mkdocs plugin to generate tag files based on metadata information."
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
-keywords = []
+keywords = ["mkdocs", "plugin", "mkdocs-plugin", "tag", "tags", "tagging"]
 authors = [
   { name = "George Y. Kussumoto", email = "georgeyk.dev@gmail.com" },
 ]
