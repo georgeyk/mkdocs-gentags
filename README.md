@@ -1,5 +1,9 @@
 # mkdocs-gentags
 
+![](https://github.com/georgeyk/mkdocs-gentags/actions/workflows/tests.yml/badge.svg?branch=main)
+![](https://github.com/georgeyk/mkdocs-gentags/actions/workflows/lint.yml/badge.svg?branch=main)
+---
+
 A [mkdocs][1] plugin to generate tags from metadata (aka frontmatter).
 
 Generates virtual files for tags, and inject context in the page objects to
