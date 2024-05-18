@@ -2,6 +2,10 @@
 
 ![](https://github.com/georgeyk/mkdocs-gentags/actions/workflows/tests.yml/badge.svg?branch=main)
 ![](https://github.com/georgeyk/mkdocs-gentags/actions/workflows/lint.yml/badge.svg?branch=main)
+[![pypi](https://img.shields.io/pypi/v/mkdocs-gentags.svg)](https://pypi.python.org/pypi/mkdocs-gentags)
+[![versions](https://img.shields.io/pypi/pyversions/mkdocs-gentags.svg)](https://github.com/georgeyk/mkdocs-gentags)
+[![license](https://img.shields.io/github/license/georgeyk/mkdocs-gentags.svg)](https://github.com/georgeyk/mkdocs-gentags/blob/main/LICENSE)
+
 ---
 
 A [mkdocs][1] plugin to generate tags from metadata (aka frontmatter).
