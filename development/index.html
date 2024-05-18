@@ -110,6 +110,18 @@
             
             <li class="nav-item" data-bs-level="1"><a href="#development" class="nav-link">Development</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#setup" class="nav-link">Setup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#docs" class="nav-link">Docs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#packaging" class="nav-link">Packaging</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -118,7 +130,43 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="development">Development</h1>
-<p>TODO</p></div>
+<h2 id="setup">Setup</h2>
+<p>Create a <code>virtualenv</code> and install <code>hatch</code> with your favorite tools.</p>
+<p>Create the "hatch" environment with:</p>
+<pre><code class="language-bash">hatch env create default
+</code></pre>
+<p>Load your environment with:</p>
+<pre><code class="language-bash">hatch shell test.py3.11
+</code></pre>
+<p>Run tests with:</p>
+<pre><code class="language-bash">hatch run test:test
+</code></pre>
+<h2 id="docs">Docs</h2>
+<p>In your dev environment, use the <code>mkdocs</code> commands as usual.</p>
+<pre><code class="language-bash"># build documentation
+mkdocs build
+
+# start the local server
+mkdocs serve
+</code></pre>
+<p>To deploy:</p>
+<pre><code class="language-bash">mkdocs gh-deploy
+</code></pre>
+<h2 id="packaging">Packaging</h2>
+<p>In your dev environment, use the <code>build</code> and <code>publish</code> commands.</p>
+<pre><code class="language-bash"># set a new version
+hatch version &lt;new version&gt;
+
+# test, commit &amp; push changes
+...
+
+# build package
+hatch build
+# `dist/` folder should exists and contains the package files
+
+# publish
+hatch publish
+</code></pre></div>
             </div>
         </div>
 

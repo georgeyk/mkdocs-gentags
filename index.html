@@ -134,11 +134,51 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="mkdocs-gentags">mkdocs-gentags</h1>
-<p>A <a href="https://www.mkdocs.org">mkdocs</a> plugin to generate tags from metadata (aka frontmatter).</p>
+<p>A <a href="https://www.mkdocs.org">mkdocs</a> plugin to generate tags from metadata (aka <em>frontmatter</em>).</p>
+<p>Generates virtual files for tags, and inject context in the page objects to ease rendering in custom templates. The virtual files behave as normal files, they can be linked, indexed and so on.</p>
+<p>In particular, this plugin is useful for those who want to customize their tags page.</p>
 <h2 id="installation">Installation</h2>
+<p>In the same environment as you have <code>mkdocs</code> installed, usually with <code>pip</code>:</p>
+<pre><code class="language-shell">pip install mkdocs-gentags
+</code></pre>
 <h2 id="configuration">Configuration</h2>
+<p>In your <code>mkdocs.yml</code>:</p>
+<pre><code class="language-yaml">...
+plugins:
+  - gentags:
+      path: tags
+      tags_index_template: tags.html
+      tags_template: tag.html
+      verbose: false
+...
+</code></pre>
+<p><strong>path</strong></p>
+<p>A relative path from <code>docs_dir</code>, where the tag files (virtually) exist.
+Defaults to <code>tags</code>.</p>
+<p><strong>tags_index_template</strong></p>
+<p>The template to use for the tag index page. Defaults
+to <code>tags.html</code>, and if empty, it will be set to <code>main.html</code>.
+The tag index page is the page that has a reference to all the other tags found.</p>
+<p>Note that <code>tags.html</code> are not provided by this plugin, you must create a custom
+template, or your theme must support it.</p>
+<p><strong>tags_template</strong></p>
+<p>Similar to <em>tags_index_template</em> but for individual tags.
+Defaults to <code>tag.html</code>, and set to <code>main.html</code> when unset.</p>
+<p>Each individual tag file contain a reference to every file using it (backlinks).</p>
+<p>Note that <code>tag.html</code> are not provided by this plugin, you must create a custom
+template, or your theme must support it.</p>
+<p><strong>verbose</strong></p>
+<p>Change plugin verbosity. Defaults to <code>false</code>.</p>
 <h2 id="template-variables">Template variables</h2>
-<h2 id="example">Example</h2></div>
+<p><strong>tags index page</strong></p>
+<p><code>tags_data</code>: a dictionary consisting of pairs of tag file and the list of files referring to the tag.</p>
+<p><strong>tags page</strong></p>
+<p><code>tag_name</code>: the name of the tag.</p>
+<p><code>tag_backlinks</code>: a list of files referring to the tag.</p>
+<h2 id="example">Example</h2>
+<p>You can check example pages under the <code>Example</code> submenu on the top of the page.</p>
+<p>The source files are available <a href="https://github.com/georgeyk/mkdocs-gentags/tree/main/docs">here</a>.</p>
+<p>The template examples are available <a href="https://github.com/georgeyk/mkdocs-gentags/tree/main/theme">here</a>.</p></div>
             </div>
         </div>
 
@@ -220,5 +260,5 @@
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-05-17 21:52:18.492739+00:00
+Build Date UTC : 2024-05-18 16:31:22.622689+00:00
 -->
