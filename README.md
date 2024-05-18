@@ -10,6 +10,8 @@ Generates virtual files for tags, and inject context in the page objects to
 facilitate rendering in custom templates. The virtual files behave as normal
 files, they can be linked, indexed and so on.
 
+In particular, this plugin is useful for those who want to customize their tags page.
+
 For more information, installation steps and examples, see the [documentation][2].
 
 ## Related
