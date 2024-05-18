@@ -38,10 +38,10 @@ gentags = "mkdocs_gentags.plugin:GenTagsPlugin"
 [tool.hatch.version]
 path = "mkdocs_gentags/__init__.py"
 
-[[tool.hatch.envs.dev.matrix]]
+[[tool.hatch.envs.test.matrix]]
 python = ["3.9", "3.10", "3.11", "3.12"]
 
-[tool.hatch.envs.dev]
+[tool.hatch.envs.test]
 dependencies = [
   "mypy>=1.0.0",
   "coverage[toml]>=6.5",
@@ -50,7 +50,7 @@ dependencies = [
   "ruff",
 ]
 
-[tool.hatch.envs.dev.scripts]
+[tool.hatch.envs.test.scripts]
 check-linter = "ruff check --show-fixes {args:mkdocs_gentags tests} "
 check-format = "ruff format --diff {args:mkdocs_gentags tests}"
 check-type = "mypy --install-types --non-interactive {args:mkdocs_gentags tests}"

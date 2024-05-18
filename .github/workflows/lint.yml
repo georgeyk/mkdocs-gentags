@@ -23,4 +23,4 @@ jobs:
         python -m pip install hatch
 
     - name: run pre-commit
-      run: hatch run +py=3.11 dev:pre-commit run -a -v
+      run: hatch run +py=3.11 test:pre-commit run -a -v

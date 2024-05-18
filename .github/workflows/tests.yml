@@ -26,4 +26,4 @@ jobs:
         python -m pip install hatch
 
     - name: Tests
-      run: hatch run +py=${{ matrix.python-version }} dev:test
+      run: hatch run +py=${{ matrix.python-version }} test:test
