@@ -2,6 +2,7 @@ site_name: mkdocs-gentags
 repo_url: https://github.com/georgeyk/mkdocs-gentags
 site_description: mkdocs plugin to generate tags from metadata (aka frontmatter).
 site_url: https://georgeyk.github.io/mkdocs-gentags/
+edit_uri: blob/main/docs/
 site_author: George Y. Kussumoto
 copyright: Copyright (c) 2024, George Y. Kussumoto
 
